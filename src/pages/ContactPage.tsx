@@ -1,10 +1,11 @@
 const SOCIALS = [
-  { platform: "email", handle: "abhi@abhishekyadav.dev", href: "mailto:abhi@abhishekyadav.dev" },
-  { platform: "twitter / x", handle: "@abhishekyadav", href: "#" },
-  { platform: "linkedin", handle: "/in/abhishekyadav", href: "#" },
-  { platform: "github", handle: "/abhishekyadav", href: "#" },
-  { platform: "telegram", handle: "@abhishekyadav", href: "#" },
-  { platform: "farcaster", handle: "@abhishek", href: "#" },
+  { platform: "email", handle: "0xabhishekyadav@gmail.com", href: "mailto:0xabhishekyadav@gmail.com" },
+  { platform: "twitter / x", handle: "@0xabhii", href: "https://x.com/0xabhii" },
+  { platform: "linkedin", handle: "0xabhii", href: "https://www.linkedin.com/in/abhishek-yadav-a567a3250/" },
+  { platform: "github", handle: "Abhi270303", href: "https://github.com/Abhi270303" },
+  { platform: "portfolio", handle: "0xabhii", href: "https://bento.me/0xabhii" },
+  { platform: "telegram", handle: "@oxabhii", href: "https://t.me/that_abhii" },
+  // { platform: "farcaster", handle: "@abhishek", href: "#" },
 ];
 
 export default function ContactPage() {
@@ -32,6 +33,8 @@ export default function ContactPage() {
           >
             <a
               href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex flex-col gap-1 hover:text-rust md:flex-row md:items-baseline md:gap-6"
             >
               <span className="font-mono text-[12px] uppercase tracking-wider text-muted md:w-32 md:shrink-0 group-hover:text-rust">
@@ -46,12 +49,13 @@ export default function ContactPage() {
       </ul>
 
       <a
-        href="#"
+        href="/abhishek-yadav.pdf"
+        download
         className="mt-14 inline-block border border-dashed border-ink/40 px-6 py-4 hover:border-rust hover:text-rust"
       >
         <div className="font-mono text-sm">↓ download resume</div>
         <div className="mt-1 font-mono text-[11px] text-muted">
-          abhishek-yadav.pdf · april 2026
+          abhishek-yadav.pdf
         </div>
       </a>
     </section>
