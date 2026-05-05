@@ -15,41 +15,41 @@ const PROJECTS: Project[] = [
     blurb:
       "An agent-first wallet and payment infrastructure for the next wave of crypto applications.",
     bullets: [
-      "lead BD & partnerships — GTM strategy across agentic DeFi & infra",
+      "lead BD & partnerships. GTM strategy across agentic DeFi & infra",
       "in conversation with the ethereum foundation, coinbase, metamask",
       "onboarded ZyfAI, Vistara Labs, bond.credit, gigabrain.gg",
     ],
     stack: "account abstraction · agentic payments · ethereum",
-    status: "BD & partnerships · jul — dec 2025",
+    status: "BD & partnerships · jul to dec 2025",
   },
   {
     category: "socialfi · co-founder · paused",
     name: "ATTENOMICS LABS",
     blurb:
-      "A verifiable attention layer for tokenized social — built fast, paused honestly.",
+      "A verifiable attention layer for tokenized social. Built fast, paused honestly.",
     bullets: [
-      "the bet — hacker-house demo on Mantle, asking why no one verified attention",
-      "the pull — 0 → 500+ users · first paying customer · partnerships in 6 months",
-      "the squeeze — outsourced AI layer slipped; Cookie3 & Wallchain launched same window",
-      "the call — paused on purpose. socialfi doesn't work without momentum.",
+      "the bet: hacker-house demo on Mantle, asking why no one verified attention",
+      "the pull: 0 → 500+ users · first paying customer · partnerships in 6 months",
+      "the squeeze: outsourced AI layer slipped; Cookie3 & Wallchain launched same window",
+      "the call: paused on purpose. socialfi doesn't work without momentum.",
     ],
     lesson:
       "lessons: small teams airtight · timing brutal · always build in public.",
     stack: "socialfi · attentionfi · mantle",
-    status: "co-founder & coo · jan — jun 2025",
+    status: "co-founder & coo · jan to jun 2025",
   },
   {
     category: "ecosystem growth · the road",
     name: "QONEQT",
     blurb:
-      "Fourteen months on the road — partnerships, workshops, and 2,000+ developers in person.",
+      "Fourteen months on the road. Partnerships, workshops, and 2,000+ developers in person.",
     bullets: [
       "30+ workshops across 10 indian cities · 2,000+ devs in person",
       "partnerships with Huddle01, Sandbox, QuillAudits, Okto, Router",
       "refined onboarding flows & tooling integrations with eng + design",
     ],
     stack: "huddle01 · sandbox · quillaudits · okto · router",
-    status: "BD & ecosystem growth · nov 2023 — dec 2024",
+    status: "BD & ecosystem growth · nov 2023 to dec 2024",
   },
 ];
 
@@ -80,7 +80,7 @@ export default function WorkPage() {
                 [{p.status}]
               </p>
               <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-muted/80">
-                stack — {p.stack}
+                stack: {p.stack}
               </p>
             </div>
 
@@ -101,7 +101,7 @@ export default function WorkPage() {
                     key={b}
                     className="flex gap-3 font-serif text-base leading-snug text-ink/85 md:text-[17px]"
                   >
-                    <span className="select-none text-rust">—</span>
+                    <span className="select-none text-rust">•</span>
                     <span>{b}</span>
                   </li>
                 ))}

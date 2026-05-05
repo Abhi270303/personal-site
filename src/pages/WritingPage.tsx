@@ -25,7 +25,7 @@ const KIND_LABEL: Record<Card["kind"], string> = {
   experiment: "experiment",
 };
 
-// ───────── cover compositions (typographic, no images) ─────────
+// cover compositions (typographic, no images)
 
 function FeatureCover() {
   return (
@@ -60,7 +60,7 @@ function ArrowCover() {
         → → →
       </p>
       <p className="font-serif text-base italic leading-tight text-paper md:text-lg">
-        agentic payments —<br />
+        agentic payments.<br />
         what nobody is saying.
       </p>
     </div>
@@ -206,7 +206,7 @@ function DocsCover() {
   );
 }
 
-// ───────── data ─────────
+// data
 
 const CARDS: Card[] = [
   {
@@ -222,7 +222,7 @@ const CARDS: Card[] = [
     size: "wide",
     kind: "essay",
     date: "09 apr 2026",
-    title: "agentic payments — what nobody is saying",
+    title: "agentic payments: what nobody is saying",
     cover: <ArrowCover />,
   },
   {
@@ -230,7 +230,7 @@ const CARDS: Card[] = [
     size: "small",
     kind: "thread",
     date: "02 apr 2026",
-    title: "0→500 users at attenomics — the playbook",
+    title: "0→500 users at attenomics: the playbook",
     cover: (
       <ThreadCover
         count="18 tweets"
@@ -289,7 +289,7 @@ const CARDS: Card[] = [
     size: "wide",
     kind: "essay",
     date: "28 feb 2026",
-    title: "from devrel to bd to founder — the route i didn't plan",
+    title: "from devrel to bd to founder: the route i didn't plan",
     cover: <PathCover />,
   },
   {

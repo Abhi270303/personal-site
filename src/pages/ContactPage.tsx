@@ -1,10 +1,10 @@
 const SOCIALS = [
   { platform: "email", handle: "0xabhishekyadav@gmail.com", href: "mailto:0xabhishekyadav@gmail.com" },
   { platform: "twitter / x", handle: "@0xabhii", href: "https://x.com/0xabhii" },
-  { platform: "linkedin", handle: "0xabhii", href: "https://www.linkedin.com/in/abhishek-yadav-a567a3250/" },
+  { platform: "linkedin", handle: "0xabhii", href: "https://www.linkedin.com/in/0xabhii/" },
   { platform: "github", handle: "Abhi270303", href: "https://github.com/Abhi270303" },
-  { platform: "portfolio", handle: "0xabhii", href: "https://bento.me/0xabhii" },
-  { platform: "telegram", handle: "@oxabhii", href: "https://t.me/that_abhii" },
+  { platform: "portfolio", handle: "0xabhii.xyz", href: "https://0xabhii.xyz" },
+  { platform: "telegram", handle: "@oxabhii", href: "https://t.me/oxabhii" },
   // { platform: "farcaster", handle: "@abhishek", href: "#" },
 ];
 
@@ -22,7 +22,7 @@ export default function ContactPage() {
         tell me what you're working on. send something half-finished. i'll
         write back.
       </p>
-      <p className="mt-3 font-mono text-sm text-muted">— abhi, mumbai</p>
+      <p className="mt-3 font-mono text-sm text-muted">abhi, mumbai</p>
 
       <ul className="mt-14">
         {SOCIALS.map((s, i) => (

@@ -1,14 +1,14 @@
 import { Link } from "wouter";
 
 const NUMBERS = [
-  { num: "10", label: "indian cities" },
+  { num: "20+", label: "Indian cities travelled" },
   { num: "2,000+", label: "devs onboarded" },
-  { num: "3", label: "hackathon wins" },
-  { num: "1", label: "company paused on purpose" },
+  { num: "10+", label: "hackathon wins" },
+  { num: "30+", label: "workshops hosted" },
 ];
 
 const RIGHT_NOW = [
-  { label: "building", text: "agentic payment infra at Rheolly." },
+  { label: "building", text: "something new in web3 growth." },
   { label: "thinking", text: "what BD looks like when wallets have agency." },
   { label: "listening", text: "Peter Cat Recording Co., on loop." },
 ];
@@ -35,8 +35,8 @@ export default function AboutPage() {
             build on them.
           </p>
           <p className="mt-4 max-w-[55ch] font-serif text-base italic leading-relaxed text-ink/70 md:text-lg">
-            Currently BD at <span className="text-rust">Rheolly</span>.
-            Previously: Attenomics, Qoneqt, The Graph.
+            Previously BD at <span className="text-rust">Rheolly</span>,
+            Attenomics, Qoneqt, and The Graph.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -55,7 +55,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Right column — by the numbers */}
+        {/* Right column by the numbers */}
         <aside className="col-span-12 md:col-span-4">
           <div className="border-l border-ink/15 md:pl-8">
             <p className="font-mono text-xs uppercase tracking-wider text-muted">
@@ -80,7 +80,7 @@ export default function AboutPage() {
       {/* Right now strip */}
       <div className="mt-20 border-t border-ink/15 pt-10 md:mt-28">
         <p className="font-mono text-xs uppercase tracking-wider text-muted">
-          right now —
+          right now
         </p>
         <ul className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-8">
           {RIGHT_NOW.map((item) => (
@@ -88,7 +88,7 @@ export default function AboutPage() {
               key={item.label}
               className="font-serif text-base leading-relaxed text-ink/85 md:text-[17px]"
             >
-              <span className="select-none text-rust">— </span>
+              <span className="select-none text-rust">• </span>
               <span className="italic text-ink/60">{item.label}: </span>
               {item.text}
             </li>
