@@ -39,18 +39,20 @@ If you're here to judge the code, be gentle. If you're here to steal an idea, ta
 
 ## Running locally
 
+Yes, you can actually steal this. That's the point.
+
 ```bash
-# Clone
+# Clone (it's not a crime, I put it here on purpose)
 git clone https://github.com/Abhi270303/personal-site.git
 cd personal-site
 
-# Install
+# Install the dependencies I definitely didn't over-engineer
 pnpm install
 
-# Dev server
+# Spin it up locally
 pnpm dev
 
-# Build
+# Build for production (or just admire the bundle size)
 pnpm build
 ```
 
