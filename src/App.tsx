@@ -8,7 +8,7 @@ import ContactPage from "@/pages/ContactPage";
 
 function App() {
   return (
-    <div className="flex min-h-screen flex-col bg-paper text-ink">
+    <div className="flex min-h-screen flex-col bg-paper text-ink transition-colors duration-300">
       <Header />
       <main className="flex-1">
         <Switch>

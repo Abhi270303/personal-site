@@ -10,7 +10,7 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    category: "agentic payments · current",
+    category: "agentic payments · past",
     name: "RHEOLLY",
     blurb:
       "An agent-first wallet and payment infrastructure for the next wave of crypto applications.",
@@ -114,6 +114,81 @@ export default function WorkPage() {
             </div>
           </article>
         ))}
+      </div>
+
+      {/* Hackathon wins */}
+      <div className="mt-24 border-t border-ink/15 pt-14 md:mt-32 md:pt-20">
+        <p className="font-mono text-xs uppercase tracking-wider text-muted">
+          ~ hackathon wins
+        </p>
+        <h3 className="mt-3 font-serif text-4xl leading-[0.95] tracking-tight text-ink md:text-5xl">
+          three builds, <span className="italic text-rust">three wins.</span>
+        </h3>
+
+        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
+          <a
+            href="https://devfolio.co/projects/proof-of-med-ff76"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block"
+          >
+            <p className="font-mono text-[11px] uppercase tracking-wider text-sage">
+              winner, DeSci · Feb 2025
+            </p>
+            <h4 className="mt-2 font-serif text-2xl leading-tight text-ink transition-colors group-hover:text-rust">
+              Proof of Med
+            </h4>
+            <p className="mt-2 font-serif text-base italic leading-snug text-ink/70">
+              Privacy-preserving prescription verifier using Zero-Knowledge
+              Proofs on Arbitrum.
+            </p>
+            <p className="mt-3 font-mono text-[11px] uppercase tracking-wider text-muted">
+              ZKPs · Noir · Sindri · zkVerify · Next.js
+            </p>
+          </a>
+
+          <a
+            href="http://stealth-pass.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block"
+          >
+            <p className="font-mono text-[11px] uppercase tracking-wider text-sage">
+              winner, ETHGlobal Bangkok · Nov 2024
+            </p>
+            <h4 className="mt-2 font-serif text-2xl leading-tight text-ink transition-colors group-hover:text-rust">
+              Encryptix
+            </h4>
+            <p className="mt-2 font-serif text-base italic leading-snug text-ink/70">
+              On-chain ticketing with private + transparent ticket data using FHE
+              and cross-chain messaging.
+            </p>
+            <p className="mt-3 font-mono text-[11px] uppercase tracking-wider text-muted">
+              FHE · Inco · Hyperlane · Base
+            </p>
+          </a>
+
+          <a
+            href="https://ownsound-three.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block"
+          >
+            <p className="font-mono text-[11px] uppercase tracking-wider text-sage">
+              winner, Hacker House Goa · Aug 2024
+            </p>
+            <h4 className="mt-2 font-serif text-2xl leading-tight text-ink transition-colors group-hover:text-rust">
+              OwnSound
+            </h4>
+            <p className="mt-2 font-serif text-base italic leading-snug text-ink/70">
+              Web3 platform for Non-Fungible Sounds with fair ownership and
+              transparent royalty splits.
+            </p>
+            <p className="mt-3 font-mono text-[11px] uppercase tracking-wider text-muted">
+              AES · IPFS · Inco FHE · Polygon
+            </p>
+          </a>
+        </div>
       </div>
     </section>
   );

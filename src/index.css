@@ -1,22 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #f5f0e8;
-  --color-ink: #1a1814;
-  --color-rust: #b85c38;
-  --color-sage: #7a8c6e;
-  --color-muted: #9e9890;
-  --color-rule: rgba(26, 24, 20, 0.15);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-rust: var(--rust);
+  --color-sage: var(--sage);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
 
   --font-serif: "Lora", "Georgia", serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
+:root {
+  --paper: #f5f0e8;
+  --ink: #1a1814;
+  --rust: #b85c38;
+  --sage: #7a8c6e;
+  --muted: #9e9890;
+  --rule: rgba(26, 24, 20, 0.15);
+}
+
+.dark {
+  --paper: #12110e;
+  --ink: #f5f0e8;
+  --rust: #c96a44;
+  --sage: #8a9c7e;
+  --muted: #7a756d;
+  --rule: rgba(245, 240, 232, 0.15);
+}
+
 @layer base {
   html,
   body {
-    background-color: var(--color-paper);
-    color: var(--color-ink);
+    background-color: var(--paper);
+    color: var(--ink);
     font-family: var(--font-serif);
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
@@ -38,8 +56,11 @@
     border-bottom: 1px solid rgba(26, 24, 20, 0.35);
     padding-bottom: 1px;
   }
+  .dark .hand-underline {
+    border-bottom-color: rgba(245, 240, 232, 0.35);
+  }
   .rule {
-    border-bottom: 1px solid rgba(26, 24, 20, 0.15);
+    border-bottom: 1px solid var(--rule);
   }
   .tilt-left {
     transform: rotate(-0.8deg);

@@ -291,64 +291,69 @@ function QuickNodeSection() {
   const featured = QUICKNODE_BLOGS[3]; // genius act
   const sideBlogs = QUICKNODE_BLOGS.filter((_, i) => i !== 3);
 
+  const imgSrc = (title: string) => {
+    if (title.includes("xstocks")) return "/xstocks.png";
+    if (title.includes("restaking")) return "/restaking.png";
+    if (title.includes("etf")) return "/ibit.png";
+    return "/megaeth.png";
+  };
+
   return (
-    <div className="flex flex-col gap-6 md:flex-row md:gap-5">
-      {/* Featured — left */}
+    <div className="flex flex-col gap-5 md:flex-row md:gap-6">
+      {/* Featured — left 50% */}
       <a
         href={featured.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="group block w-full md:w-[52%]"
+        className="group relative block w-full overflow-hidden rounded-md md:w-1/2"
       >
-        <div className="overflow-hidden rounded-md">
-          <img
-            src="/genius-act.png"
-            alt={featured.title}
-            className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-          />
-        </div>
-        <div className="mt-4">
-          <h3 className="font-serif text-2xl leading-tight text-ink transition-colors group-hover:text-rust md:text-[28px]">
-            {featured.title}
-          </h3>
-          <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-muted">
-            {KIND_LABEL[featured.kind]} · {featured.date}
-          </p>
+        <img
+          src="/genius-act.png"
+          alt={featured.title}
+          loading="lazy"
+          className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+        />
+        {/* Hover caption */}
+        <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-4 py-3 text-ink backdrop-blur transition-transform group-hover:translate-y-0">
+          <div className="flex items-center justify-between gap-2">
+            <p className="truncate font-serif text-sm leading-tight text-ink md:text-base">
+              {featured.title}
+            </p>
+            <span className="shrink-0 font-mono text-[10px] uppercase tracking-wider text-rust">
+              {KIND_LABEL[featured.kind]} →
+            </span>
+          </div>
         </div>
       </a>
 
-      {/* Side blogs — right */}
-      <div className="flex w-full flex-col gap-4 md:w-[48%]">
+      {/* Side blogs — right 50%, vertical cards */}
+      <div className="grid w-full grid-cols-2 gap-3 md:w-1/2 md:gap-4">
         {sideBlogs.map((blog) => (
           <a
             key={blog.title}
             href={blog.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex gap-3 md:flex-col md:gap-2"
+            className="group relative block overflow-hidden rounded-md"
           >
-            <div className="aspect-[2/1] w-28 shrink-0 overflow-hidden rounded-md md:w-full">
+            <div className="aspect-[2/1]">
               <img
-                src={
-                  blog.title.includes("xstocks")
-                    ? "/xstocks.png"
-                    : blog.title.includes("restaking")
-                      ? "/restaking.png"
-                      : blog.title.includes("etf")
-                        ? "/ibit.png"
-                        : "/megaeth.png"
-                }
+                src={imgSrc(blog.title)}
                 alt={blog.title}
+                loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               />
             </div>
-            <div className="flex flex-col justify-center md:mt-1">
-              <h4 className="font-serif text-base leading-snug text-ink transition-colors group-hover:text-rust md:text-lg">
-                {blog.title}
-              </h4>
-              <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted">
-                {KIND_LABEL[blog.kind]} · {blog.date}
-              </p>
+            {/* Hover caption */}
+            <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-3 py-2 text-ink backdrop-blur transition-transform group-hover:translate-y-0 md:px-4 md:py-3">
+              <div className="flex items-center justify-between gap-2">
+                <p className="truncate font-serif text-[13px] leading-tight text-ink md:text-sm">
+                  {blog.title}
+                </p>
+                <span className="shrink-0 font-mono text-[9px] uppercase tracking-wider text-rust md:text-[10px]">
+                  {KIND_LABEL[blog.kind]} →
+                </span>
+              </div>
             </div>
           </a>
         ))}
@@ -366,28 +371,32 @@ function CardGrid({ cards }: { cards: Card[] }) {
         gridAutoFlow: "dense",
       }}
     >
-      {cards.map((card) => (
-        <a
-          key={card.title}
-          href={card.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`group relative block overflow-hidden rounded-md transition-transform hover:-translate-y-1 hover:shadow-lg ${SIZE_CLASSES[card.size]}`}
-        >
-          {card.cover}
-          {/* Hover caption strip */}
-          <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-3 py-2 text-ink backdrop-blur transition-transform group-hover:translate-y-0 md:px-4 md:py-3">
-            <div className="flex items-center justify-between gap-2">
-              <p className="truncate font-serif text-[13px] leading-tight text-ink md:text-sm">
-                {card.title}
-              </p>
-              <span className="shrink-0 font-mono text-[9px] uppercase tracking-wider text-rust md:text-[10px]">
-                {KIND_LABEL[card.kind]} →
-              </span>
+      {cards.map((card) => {
+        const isPlaceholder = card.href === "#";
+        return (
+          <a
+            key={card.title}
+            href={card.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={isPlaceholder ? (e) => e.preventDefault() : undefined}
+            className={`group relative block overflow-hidden rounded-md transition-transform hover:-translate-y-1 hover:shadow-lg ${SIZE_CLASSES[card.size]} ${isPlaceholder ? "cursor-default" : ""}`}
+          >
+            {card.cover}
+            {/* Hover caption strip */}
+            <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-3 py-2 text-ink backdrop-blur transition-transform group-hover:translate-y-0 md:px-4 md:py-3">
+              <div className="flex items-center justify-between gap-2">
+                <p className="truncate font-serif text-[13px] leading-tight text-ink md:text-sm">
+                  {card.title}
+                </p>
+                <span className="shrink-0 font-mono text-[9px] uppercase tracking-wider text-rust md:text-[10px]">
+                  {isPlaceholder ? "soon" : `${KIND_LABEL[card.kind]} →`}
+                </span>
+              </div>
             </div>
-          </div>
-        </a>
-      ))}
+          </a>
+        );
+      })}
     </div>
   );
 }
