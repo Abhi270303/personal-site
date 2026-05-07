@@ -5,7 +5,7 @@ type Size = "feature" | "wide" | "tall" | "small";
 type Card = {
   href: string;
   size: Size;
-  kind: "essay" | "thread" | "note" | "experiment";
+  kind: "essay" | "thread" | "note" | "experiment" | "blog";
   date: string;
   title: string;
   cover: ReactNode;
@@ -23,9 +23,62 @@ const KIND_LABEL: Record<Card["kind"], string> = {
   thread: "𝕏 thread",
   note: "notes",
   experiment: "experiment",
+  blog: "blog",
 };
 
-// cover compositions (typographic, no images)
+// ───────── QuickNode blog covers ─────────
+
+function XstocksCover() {
+  return (
+    <img
+      src="/xstocks.png"
+      alt="xstocks"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+  );
+}
+
+function RestakeCover() {
+  return (
+    <img
+      src="/restaking.png"
+      alt="restaking"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+  );
+}
+
+function EtfCover() {
+  return (
+    <img
+      src="/ibit.png"
+      alt="ibit"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+  );
+}
+
+function GeniusCover() {
+  return (
+    <img
+      src="/genius-act.png"
+      alt="genius act"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+  );
+}
+
+function MegaethCover() {
+  return (
+    <img
+      src="/megaeth.png"
+      alt="megaeth"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+  );
+}
+
+// ───────── other writing covers ─────────
 
 function FeatureCover() {
   return (
@@ -40,28 +93,10 @@ function FeatureCover() {
         <br />
         because the
         <br />
-        idea was{" "}
-        <span className="text-rust">wrong.</span>
+        idea was <span className="text-rust">wrong.</span>
       </p>
       <p className="font-mono text-[10px] uppercase tracking-wider text-paper/60">
         14 jun 2025 · 8 min read
-      </p>
-    </div>
-  );
-}
-
-function ArrowCover() {
-  return (
-    <div className="absolute inset-0 flex flex-col justify-between bg-rust p-5 text-paper md:p-6">
-      <p className="font-mono text-[10px] uppercase tracking-wider text-paper/70">
-        essay
-      </p>
-      <p className="font-serif text-5xl leading-none text-paper md:text-7xl">
-        → → →
-      </p>
-      <p className="font-serif text-base italic leading-tight text-paper md:text-lg">
-        agentic payments.<br />
-        what nobody is saying.
       </p>
     </div>
   );
@@ -91,7 +126,7 @@ function ThreadCover({
         </p>
       </div>
       <p className="font-serif text-lg italic leading-snug md:text-xl">
-        "{excerpt}"
+        &ldquo;{excerpt}&rdquo;
       </p>
       <div className="flex gap-1">
         {Array.from({ length: 6 }).map((_, i) => (
@@ -105,70 +140,17 @@ function ThreadCover({
   );
 }
 
-function NumberCover({
-  num,
-  label,
-  tone = "sage",
-}: {
-  num: string;
-  label: string;
-  tone?: "sage" | "rust" | "ink";
-}) {
-  const bg =
-    tone === "sage" ? "bg-sage" : tone === "rust" ? "bg-rust" : "bg-ink";
+function DocsCover() {
   return (
-    <div className={`absolute inset-0 flex flex-col justify-between p-5 text-paper ${bg} md:p-6`}>
-      <p className="font-mono text-[10px] uppercase tracking-wider text-paper/70">
-        field notes
-      </p>
-      <p className="font-serif text-7xl leading-none text-paper md:text-9xl">
-        {num}
-      </p>
-      <p className="font-mono text-[10px] uppercase tracking-wider text-paper/80">
-        {label}
-      </p>
-    </div>
-  );
-}
-
-function GridPatternCover({ word, sub }: { word: string; sub: string }) {
-  return (
-    <div
-      className="absolute inset-0 flex flex-col justify-between p-5 text-ink md:p-6"
-      style={{
-        backgroundImage:
-          "radial-gradient(rgba(26,24,20,0.18) 1px, transparent 1px)",
-        backgroundSize: "10px 10px",
-        backgroundColor: "#F5F0E8",
-      }}
-    >
-      <p className="font-mono text-[10px] uppercase tracking-wider text-muted">
+    <div className="absolute inset-0 flex flex-col justify-between bg-ink p-4 text-paper md:p-5">
+      <p className="font-mono text-[10px] uppercase tracking-wider text-paper/60">
         notes
       </p>
-      <p className="font-serif text-6xl italic leading-none text-rust md:text-8xl">
-        {word}
+      <p className="font-serif text-xl italic leading-tight text-paper md:text-2xl">
+        writing developer docs that don't lie.
       </p>
-      <p className="font-mono text-[10px] uppercase tracking-wider text-muted">
-        {sub}
-      </p>
-    </div>
-  );
-}
-
-function PathCover() {
-  return (
-    <div className="absolute inset-0 flex flex-col justify-between bg-paper p-5 text-ink md:p-6">
-      <p className="font-mono text-[10px] uppercase tracking-wider text-muted">
-        essay
-      </p>
-      <p className="font-serif text-2xl leading-tight text-ink md:text-3xl">
-        <span className="text-muted">devrel</span> →{" "}
-        <span className="text-muted">bd</span> →{" "}
-        <span className="text-rust italic">founder</span> →{" "}
-        <span className="text-muted">bd</span>
-      </p>
-      <p className="font-mono text-[10px] uppercase tracking-wider text-muted">
-        the route i didn't plan
+      <p className="font-mono text-[10px] uppercase tracking-wider text-paper/60">
+        from the graph, 2024
       </p>
     </div>
   );
@@ -190,25 +172,52 @@ function HalfBakedCover() {
   );
 }
 
-function DocsCover() {
-  return (
-    <div className="absolute inset-0 flex flex-col justify-between bg-ink p-4 text-paper md:p-5">
-      <p className="font-mono text-[10px] uppercase tracking-wider text-paper/60">
-        notes
-      </p>
-      <p className="font-serif text-xl italic leading-tight text-paper md:text-2xl">
-        writing developer docs that don't lie.
-      </p>
-      <p className="font-mono text-[10px] uppercase tracking-wider text-paper/60">
-        from the graph, 2024
-      </p>
-    </div>
-  );
-}
+// ───────── data ─────────
 
-// data
+const QUICKNODE_BLOGS: Card[] = [
+  {
+    href: "https://blog.quicknode.com/xstocks-solana-tokenized-stocks-2025/",
+    size: "wide",
+    kind: "blog",
+    date: "02 sep 2025",
+    title: "xstocks: tokenized stocks on solana",
+    cover: <XstocksCover />,
+  },
+  {
+    href: "https://blog.quicknode.com/restaking-revolution-eigenlayer-defi-yields-2025/",
+    size: "wide",
+    kind: "blog",
+    date: "02 sep 2025",
+    title: "the restaking revolution: eigenlayer & defi yields",
+    cover: <RestakeCover />,
+  },
+  {
+    href: "https://blog.quicknode.com/ibit-blackrock-bitcoin-etf-guide-2025/",
+    size: "tall",
+    kind: "blog",
+    date: "02 sep 2025",
+    title: "the blackrock bitcoin etf guide",
+    cover: <EtfCover />,
+  },
+  {
+    href: "https://blog.quicknode.com/genius-act-stablecoin-regulation-2025/",
+    size: "small",
+    kind: "blog",
+    date: "02 sep 2025",
+    title: "the genius act: stablecoin regulation in 2025",
+    cover: <GeniusCover />,
+  },
+  {
+    href: "https://blog.quicknode.com/megaeth-ultra-fast-l2-ethereum-defi-gaming-2025/",
+    size: "small",
+    kind: "blog",
+    date: "02 sep 2025",
+    title: "megaeth: ultra-fast L2 for ethereum defi & gaming",
+    cover: <MegaethCover />,
+  },
+];
 
-const CARDS: Card[] = [
+const OTHER_CARDS: Card[] = [
   {
     href: "#",
     size: "feature",
@@ -216,14 +225,6 @@ const CARDS: Card[] = [
     date: "14 jun 2025",
     title: "attenomics didn't fail because the idea was wrong",
     cover: <FeatureCover />,
-  },
-  {
-    href: "#",
-    size: "wide",
-    kind: "essay",
-    date: "09 apr 2026",
-    title: "agentic payments: what nobody is saying",
-    cover: <ArrowCover />,
   },
   {
     href: "#",
@@ -255,22 +256,6 @@ const CARDS: Card[] = [
   },
   {
     href: "#",
-    size: "tall",
-    kind: "note",
-    date: "14 mar 2026",
-    title: "fhe is the abstraction layer i didn't expect to love",
-    cover: <GridPatternCover word="FHE." sub="encrypted compute, plain words" />,
-  },
-  {
-    href: "#",
-    size: "wide",
-    kind: "essay",
-    date: "27 mar 2026",
-    title: "the unreasonable effectiveness of in-person workshops",
-    cover: <NumberCover num="10" label="cities · 30+ workshops · 2,000+ devs" tone="sage" />,
-  },
-  {
-    href: "#",
     size: "small",
     kind: "thread",
     date: "11 mar 2026",
@@ -283,14 +268,6 @@ const CARDS: Card[] = [
         text="text-paper"
       />
     ),
-  },
-  {
-    href: "#",
-    size: "wide",
-    kind: "essay",
-    date: "28 feb 2026",
-    title: "from devrel to bd to founder: the route i didn't plan",
-    cover: <PathCover />,
   },
   {
     href: "#",
@@ -310,6 +287,111 @@ const CARDS: Card[] = [
   },
 ];
 
+function QuickNodeSection() {
+  const featured = QUICKNODE_BLOGS[3]; // genius act
+  const sideBlogs = QUICKNODE_BLOGS.filter((_, i) => i !== 3);
+
+  return (
+    <div className="flex flex-col gap-6 md:flex-row md:gap-5">
+      {/* Featured — left */}
+      <a
+        href={featured.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block w-full md:w-[52%]"
+      >
+        <div className="overflow-hidden rounded-md">
+          <img
+            src="/genius-act.png"
+            alt={featured.title}
+            className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        </div>
+        <div className="mt-4">
+          <h3 className="font-serif text-2xl leading-tight text-ink transition-colors group-hover:text-rust md:text-[28px]">
+            {featured.title}
+          </h3>
+          <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-muted">
+            {KIND_LABEL[featured.kind]} · {featured.date}
+          </p>
+        </div>
+      </a>
+
+      {/* Side blogs — right */}
+      <div className="flex w-full flex-col gap-4 md:w-[48%]">
+        {sideBlogs.map((blog) => (
+          <a
+            key={blog.title}
+            href={blog.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex gap-3 md:flex-col md:gap-2"
+          >
+            <div className="aspect-[2/1] w-28 shrink-0 overflow-hidden rounded-md md:w-full">
+              <img
+                src={
+                  blog.title.includes("xstocks")
+                    ? "/xstocks.png"
+                    : blog.title.includes("restaking")
+                      ? "/restaking.png"
+                      : blog.title.includes("etf")
+                        ? "/ibit.png"
+                        : "/megaeth.png"
+                }
+                alt={blog.title}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+            </div>
+            <div className="flex flex-col justify-center md:mt-1">
+              <h4 className="font-serif text-base leading-snug text-ink transition-colors group-hover:text-rust md:text-lg">
+                {blog.title}
+              </h4>
+              <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted">
+                {KIND_LABEL[blog.kind]} · {blog.date}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CardGrid({ cards }: { cards: Card[] }) {
+  return (
+    <div
+      className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4"
+      style={{
+        gridAutoRows: "minmax(170px, auto)",
+        gridAutoFlow: "dense",
+      }}
+    >
+      {cards.map((card) => (
+        <a
+          key={card.title}
+          href={card.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`group relative block overflow-hidden rounded-md transition-transform hover:-translate-y-1 hover:shadow-lg ${SIZE_CLASSES[card.size]}`}
+        >
+          {card.cover}
+          {/* Hover caption strip */}
+          <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-3 py-2 text-ink backdrop-blur transition-transform group-hover:translate-y-0 md:px-4 md:py-3">
+            <div className="flex items-center justify-between gap-2">
+              <p className="truncate font-serif text-[13px] leading-tight text-ink md:text-sm">
+                {card.title}
+              </p>
+              <span className="shrink-0 font-mono text-[9px] uppercase tracking-wider text-rust md:text-[10px]">
+                {KIND_LABEL[card.kind]} →
+              </span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  );
+}
+
 export default function WritingPage() {
   return (
     <section className="mx-auto max-w-[1100px] px-6 py-16 md:px-10 md:py-20">
@@ -321,39 +403,29 @@ export default function WritingPage() {
           the <span className="italic text-rust">notebook.</span>
         </h2>
         <p className="mt-5 max-w-[55ch] font-serif text-base font-light italic leading-relaxed text-ink/70 md:text-lg">
-          essays, field notes, and twitter threads. the pinned one (top-left)
-          is the long version of the attenomics story.
+          essays, field notes, and twitter threads. the pinned one is the long
+          version of the attenomics story.
         </p>
       </div>
 
-      {/* Card grid */}
-      <div
-        className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4"
-        style={{
-          gridAutoRows: "minmax(170px, auto)",
-          gridAutoFlow: "dense",
-        }}
-      >
-        {CARDS.map((card) => (
-          <a
-            key={card.title}
-            href={card.href}
-            className={`group relative block overflow-hidden rounded-md transition-transform hover:-translate-y-1 hover:shadow-lg ${SIZE_CLASSES[card.size]}`}
-          >
-            {card.cover}
-            {/* Hover caption strip */}
-            <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-3 py-2 text-ink backdrop-blur transition-transform group-hover:translate-y-0 md:px-4 md:py-3">
-              <div className="flex items-center justify-between gap-2">
-                <p className="truncate font-serif text-[13px] leading-tight text-ink md:text-sm">
-                  {card.title}
-                </p>
-                <span className="shrink-0 font-mono text-[9px] uppercase tracking-wider text-rust md:text-[10px]">
-                  {KIND_LABEL[card.kind]} →
-                </span>
-              </div>
-            </div>
-          </a>
-        ))}
+      {/* QuickNode blogs */}
+      <div className="mb-10">
+        <p className="font-mono text-xs uppercase tracking-wider text-muted">
+          wrote some blogs for quicknode
+        </p>
+        <div className="mt-4">
+          <QuickNodeSection />
+        </div>
+      </div>
+
+      {/* Other writings */}
+      <div className="mt-16 md:mt-20">
+        <p className="font-mono text-xs uppercase tracking-wider text-muted">
+          other writings
+        </p>
+        <div className="mt-4">
+          <CardGrid cards={OTHER_CARDS} />
+        </div>
       </div>
 
       <p className="mt-12 font-mono text-[11px] uppercase tracking-wider text-muted">
