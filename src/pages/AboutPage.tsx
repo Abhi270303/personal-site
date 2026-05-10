@@ -8,9 +8,9 @@ const NUMBERS = [
 ];
 
 const RIGHT_NOW = [
-  { label: "building", text: "something new in web3 growth." },
-  { label: "thinking", text: "what BD looks like when wallets have agency." },
-  { label: "listening", text: "Peter Cat Recording Co., on loop." },
+  { label: "building", text: "something around gamified infra for financial markets." },
+  { label: "thinking", text: "what a founder mentality actually means in a bear market." },
+  { label: "listening", text: "Dhurandhar album on loop." },
 ];
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
           <p className="font-mono text-xs uppercase tracking-wider text-muted">
             i am
           </p>
-          <h1 className="mt-3 font-serif text-6xl leading-[0.95] tracking-tight text-ink md:text-8xl">
+          <h1 className="mt-3 font-serif text-5xl leading-[0.95] tracking-tight text-ink md:text-8xl">
             <span className="block">abhishek</span>
             <span className="block tilt-tiny italic text-rust">yadav.</span>
           </h1>
@@ -30,7 +30,7 @@ export default function AboutPage() {
             [ growth · partnerships · devrel · web3 · mumbai ]
           </p>
 
-          <p className="mt-10 max-w-[55ch] font-serif text-xl font-light leading-[1.5] text-ink md:text-2xl">
+          <p className="mt-8 max-w-[55ch] font-serif text-lg font-light leading-[1.5] text-ink md:text-2xl">
             I work at the seam between crypto protocols and the people who
             build on them.
           </p>
@@ -39,7 +39,7 @@ export default function AboutPage() {
             Attenomics, Qoneqt, and The Graph.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/work"
               className="border border-ink px-5 py-3 font-mono text-[12px] uppercase tracking-wider text-ink hover:border-rust hover:text-rust"
@@ -57,7 +57,7 @@ export default function AboutPage() {
 
         {/* Right column by the numbers */}
         <aside className="col-span-12 md:col-span-4">
-          <div className="border-l border-ink/15 md:pl-8">
+          <div className="md:border-l md:border-ink/15 md:pl-8">
             <p className="font-mono text-xs uppercase tracking-wider text-muted">
               ~ by the numbers
             </p>

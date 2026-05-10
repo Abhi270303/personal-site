@@ -86,7 +86,7 @@ export default function WorkPage() {
 
             <div className="col-span-12 md:col-span-8">
               <h3
-                className={`font-serif text-4xl leading-[0.95] tracking-tight text-ink md:text-6xl ${
+                className={`break-words font-serif text-3xl leading-[0.95] tracking-tight text-ink md:text-6xl ${
                   i % 2 === 0 ? "" : "tilt-tiny"
                 }`}
               >
@@ -121,7 +121,7 @@ export default function WorkPage() {
         <p className="font-mono text-xs uppercase tracking-wider text-muted">
           ~ hackathon wins
         </p>
-        <h3 className="mt-3 font-serif text-4xl leading-[0.95] tracking-tight text-ink md:text-5xl">
+        <h3 className="mt-3 font-serif text-3xl leading-[0.95] tracking-tight text-ink md:text-5xl">
           three builds, <span className="italic text-rust">three wins.</span>
         </h3>
 

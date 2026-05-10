@@ -314,7 +314,7 @@ function QuickNodeSection() {
           className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
         />
         {/* Hover caption */}
-        <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-4 py-3 text-ink backdrop-blur transition-transform group-hover:translate-y-0">
+        <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-4 py-3 text-ink backdrop-blur transition-transform max-md:translate-y-0 group-hover:translate-y-0">
           <div className="flex items-center justify-between gap-2">
             <p className="truncate font-serif text-sm leading-tight text-ink md:text-base">
               {featured.title}
@@ -345,7 +345,7 @@ function QuickNodeSection() {
               />
             </div>
             {/* Hover caption */}
-            <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-3 py-2 text-ink backdrop-blur transition-transform group-hover:translate-y-0 md:px-4 md:py-3">
+            <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-3 py-2 text-ink backdrop-blur transition-transform max-md:translate-y-0 group-hover:translate-y-0 md:px-4 md:py-3">
               <div className="flex items-center justify-between gap-2">
                 <p className="truncate font-serif text-[13px] leading-tight text-ink md:text-sm">
                   {blog.title}
@@ -384,7 +384,7 @@ function CardGrid({ cards }: { cards: Card[] }) {
           >
             {card.cover}
             {/* Hover caption strip */}
-            <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-3 py-2 text-ink backdrop-blur transition-transform group-hover:translate-y-0 md:px-4 md:py-3">
+            <div className="absolute inset-x-0 bottom-0 translate-y-full bg-paper/95 px-3 py-2 text-ink backdrop-blur transition-transform max-md:translate-y-0 group-hover:translate-y-0 md:px-4 md:py-3">
               <div className="flex items-center justify-between gap-2">
                 <p className="truncate font-serif text-[13px] leading-tight text-ink md:text-sm">
                   {card.title}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { useTheme } from "next-themes";
+import { Sun, Moon } from "lucide-react";
 
 const NAV = [
   { href: "/", label: "about" },
@@ -19,19 +20,21 @@ function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button className="h-5 w-5" aria-label="Toggle theme">
-        <span className="block h-5 w-5 rounded-full border border-ink/20" />
+      <button className="p-1" aria-label="Toggle theme">
+        <span className="block h-4 w-4 rounded-full border border-ink/20" />
       </button>
     );
   }
 
+  const isDark = theme === "dark";
+
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="font-mono text-[12px] uppercase tracking-wider text-ink/70 transition-colors hover:text-rust"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="p-1 text-ink/70 transition-colors hover:text-rust"
       aria-label="Toggle theme"
     >
-      {theme === "dark" ? "light" : "dark"}
+      {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </button>
   );
 }
@@ -41,15 +44,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-ink/15 bg-paper/90 backdrop-blur transition-colors duration-300">
-      <div className="mx-auto flex max-w-[1100px] items-center justify-between px-6 py-4 md:px-10 md:py-5">
-        <Link
-          href="/"
-          className="font-serif text-lg tracking-tight text-ink hover:text-rust md:text-xl"
-        >
-          abhishek <span className="italic text-rust">yadav</span>
-        </Link>
+      <div className="mx-auto flex max-w-[1100px] items-center justify-end px-6 py-4 md:px-10 md:py-5">
         <nav>
-          <ul className="flex items-center gap-5 md:gap-7">
+          <ul className="flex items-center gap-4 md:gap-7">
             {NAV.map((item) => {
               const active = location === item.href;
               return (
